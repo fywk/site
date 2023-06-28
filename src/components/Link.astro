@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-iconify";
+
+type Props = {
+  url: string;
+  icon: string;
+  title: string;
+};
+
+const { url, icon, title } = Astro.props;
+---
+
+<a
+  href={url}
+  class="group relative flex items-center justify-center gap-x-4 rounded-full bg-cyan-950 px-14 py-3.5 text-white transition hover:scale-[1.025] hover:text-secondary focus:outline-none focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-primary"
+  target="_blank"
+>
+  <div class="absolute left-3">
+    <Icon name={icon} class="h-7 w-7 [&_[stroke-width='2']]:stroke-[1.75]" />
+  </div>
+  <p class="font-semibold">{title}</p>
+  <div
+    class="absolute right-3 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+  >
+    <Icon
+      name="tabler:external-link"
+      class="h-6 w-6 [&_[stroke-width='2']]:stroke-[1.75]"
+    />
+  </div>
+</a>

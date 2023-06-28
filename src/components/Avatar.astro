@@ -1,0 +1,12 @@
+---
+type Props = {
+  name: string;
+  avatarURL: string;
+};
+
+const { name, avatarURL } = Astro.props;
+---
+
+<figure class="aspect-square w-[6.5rem] overflow-hidden rounded-full">
+  <img src={avatarURL} width="400" height="400" alt={name} />
+</figure>
