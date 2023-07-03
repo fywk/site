@@ -16,7 +16,7 @@ const { data: user } = await getEntry("users", "fywk");
       class="flex w-full flex-col items-center justify-center gap-x-6 gap-y-4 text-center"
     >
       <Avatar name={user.name} avatarURL={user.avatar_url} />
-      <div class="flex flex-col gap-y-3">
+      <div class="flex flex-col gap-y-2">
         <h1
           class="flex items-center justify-center text-2xl/none font-semibold text-slate-50 [text-shadow:0_0_0.25rem_rgb(var(--color-primary))]"
           title={user.name}
@@ -29,9 +29,9 @@ const { data: user } = await getEntry("users", "fywk");
     </header>
     <ul class="flex w-full flex-col gap-y-4">
       {
-        user.links.map((link) => (
+        user.links.map(({ url, title, icon }) => (
           <li>
-            <Link url={link.url} title={link.title} icon={link.icon} />
+            <Link {url} {title} {icon} />
           </li>
         ))
       }

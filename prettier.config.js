@@ -11,6 +11,7 @@ module.exports = {
       },
     },
   ],
+  pluginSearchDirs: false,
   // prettier-plugin-astro
   astroAllowShorthand: true,
 };
