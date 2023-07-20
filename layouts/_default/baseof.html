@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    {{ hugo.Generator }}
+    <title>{{ .Title }}</title>
+    <meta
+      name="description"
+      content="{{ .Site.Params.Description | plainify | replaceRE `\n` ` ` }}"
+    />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+    {{ $styles := resources.Get "css/styles.css" | resources.PostCSS }}
+    {{ if hugo.IsProduction }}
+      {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+  </head>
+  <body class="bg-zinc-950 text-slate-400">
+    {{ block "body" . }}{{ end }}
+  </body>
+</html>
