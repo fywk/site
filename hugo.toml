@@ -1,0 +1,42 @@
+baseURL = "https://fywk.xyz"
+disableKinds = ["page", "section", "taxonomy", "term", "RSS"]
+title = "Francis Yeong"
+
+[build]
+  writeStats = true
+  [[build.cachebusters]]
+    source = "assets/watching/hugo_stats\\.json"
+    target = "styles\\.css"
+  [[build.cachebusters]]
+    source = "(postcss|tailwind)\\.config\\.js"
+    target = "css"
+  [[build.cachebusters]]
+    source = "assets/.*\\.(js|ts|jsx|tsx)"
+    target = "js"
+  [[build.cachebusters]]
+    source = "assets/.*\\.(.*)$"
+    target = "$1"
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"
+
+[params]
+  Description = "Frontend-type person.<br> 🧑‍💻 ❤️ 🌏"
+  GitHubUsername = "fywk"
+  [[params.links]]
+    icon = "brand-github"
+    name = "GitHub"
+    url = "https://github.com/fywk"
+  [[params.links]]
+    icon = "layout-dashboard"
+    name = "My Personal Dashboard"
+    url = "https://dashboard.fywk.xyz"
+  [[params.links]]
+    icon = "mail"
+    name = "contact@fywk.xyz"
+    url = "mailto:contact@fywk.xyz"
