@@ -6,5 +6,6 @@
   HUGO_VERSION = "0.119.0"
 
 [[redirects]]
-from = "https://www.fywk.dev"
+from = "/"
 to = "https://dashboard.fywk.dev"
+force = true
